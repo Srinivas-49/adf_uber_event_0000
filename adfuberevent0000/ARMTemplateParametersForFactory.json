@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfuberevent0000"
+		},
+		"ls_adls_adf_uber_0000_accountKey": {
+			"value": ""
+		},
+		"ls_adls_uber_00000_accountKey": {
+			"value": ""
+		},
+		"ls_adls_adf_uber_0000_properties_typeProperties_url": {
+			"value": "https://adlsuber0000.dfs.core.windows.net/"
+		},
+		"ls_adls_uber_00000_properties_typeProperties_url": {
+			"value": "https://uberadlsstorage0000.dfs.core.windows.net/"
+		},
+		"ls_github_adf_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		}
+	}
+}
