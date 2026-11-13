@@ -1,0 +1,25 @@
+name: ADF validation
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate JSON artifacts
+        run: python scripts/validate_adf.py
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Check Terraform formatting
+        run: |
+          terraform_version=1.9.8
+          curl -fsSL -o /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip"
+          unzip -q /tmp/terraform.zip -d /tmp
+          /tmp/terraform fmt -check -recursive infrastructure/
